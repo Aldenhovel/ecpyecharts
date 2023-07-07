@@ -12,3 +12,36 @@
 
 我们的ecpyecharts开发目的在于简化开发者的设计负担，对echarts和pyecharts做减法，提供使用更加简洁、集成度更高且效果更加漂亮的定制可视化报表模板。
 
+
+
+## 示例
+
+![bar_example](imgs/bar_example.png)
+
+```python
+import random
+from ecpyecharts.templates import HTMLTemplate
+from ecpyecharts.options.OP_bar import BarOption
+
+html = HTMLTemplate(title="hello", background_color="black")
+op = BarOption(title="Citys", subtitle="this is the subtitle of A", xaxis='Metric', yaxis='Score')
+op.init_option(xdata=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
+               ydata={'BJ': [random.randint(0, 100) for _ in range(11)],
+                      'SH': [random.randint(0, 100) for _ in range(11)],
+                      'HK': [random.randint(0, 100) for _ in range(11)]
+                      })
+html.add_chart(op)
+
+op = BarOption(title="Chart B", subtitle="this is the subtitle of B", xaxis='Name', yaxis='Age')
+op.init_option(xdata=['LiHua', 'XiaoMing', 'Ada', 'Happe', 'Aldenhovel', 'JOJO', 'MXY'],
+               ydata={'Age': [random.randint(0, 100) for _ in range(7)],})
+html.add_chart(op)
+html.export('../tmp/bar_example.html')
+```
+
+如上面的代码和效果图所示，这个例子位于 `examples/bar_example.py` 通过简单方法即可生成一个 HTML 报表网页。
+
+
+
+**更多模板会后续更新**
+
