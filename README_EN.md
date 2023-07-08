@@ -14,7 +14,12 @@ Our development goal for ecpyecharts is to simplify the design burden for develo
 
 ## Examples
 
-![bar_example](imgs\example01.png)
+![bar01](imgs/bar01.png)
+![line01](imgs/line01.png)
+
+## How to use ecpyecharts
+
+Please refer to this code snippet from `examples/bar_example.py`, which briefly introduces the most direct use of ecpyecharts:
 
 ```python
 import random
@@ -22,29 +27,25 @@ from ecpyecharts.html import HTMLTemplate
 from ecpyecharts.charts import BarTemplate
 
 # create a html template
-html = HTMLTemplate(title="hello", background_color="black")
+html = HTMLTemplate(title="hello", background_color="gray")
 
-# create a bar chart template and init it, append it into the html template
+# create a bar chart template 
+# init it with data
 chart = BarTemplate(title="Citys", subtitle="this is the subtitle of A", xaxis='Metric', yaxis='Score')
 chart.init_option(xdata=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
                ydata={'BJ Score': [random.randint(0, 100) for _ in range(11)],
                       'SH Score': [random.randint(0, 100) for _ in range(11)],
                       'HK Score': [random.randint(0, 100) for _ in range(11)]
                       })
-html.append_chart(chart)
 
-# create the 2nd chart and append it into html template
-chart = BarTemplate(title="Chart B", subtitle="this is the subtitle of B", xaxis='Name', yaxis='Age')
-chart.init_option(xdata=['LiHua', 'XiaoMing', 'Ada', 'Happe', 'Aldenhovel', 'JOJO', 'MXY'],
-               ydata={'Age': [random.randint(20, 65) for _ in range(7)],})
+# Once the chart is initialized, 
+# we can append it into the html template
 html.append_chart(chart)
 
 # export the html template to a file
 html.export('../tmp/bar_example.html')
 ```
 
-As shown in the code and the resulting image above, this example is located in `examples/bar_example.py` and can generate an HTML report webpage using a simple method.
+More sample codes for using other templates will be placed in `examples/`. If you want to view the running results, please view the corresponding HTML files in `tmp/`.
 
-
-
-**More templates will be updated in future updates.**
+**More templates will be updated later**

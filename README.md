@@ -16,7 +16,12 @@
 
 ## 示例
 
-![bar_example](imgs/example01.png)
+![bar01](imgs/bar01.png)
+![line01](imgs/line01.png)
+
+## 如何使用 ecpyecharts
+
+请参考这段来自 `examples/bar_example.py` 的代码片段，它简单介绍了 ecpyecharts 的最直接使用方法：
 
 ```python
 import random
@@ -24,30 +29,26 @@ from ecpyecharts.html import HTMLTemplate
 from ecpyecharts.charts import BarTemplate
 
 # create a html template
-html = HTMLTemplate(title="hello", background_color="black")
+html = HTMLTemplate(title="hello", background_color="gray")
 
-# create a bar chart template and init it, append it into the html template
+# create a bar chart template 
+# init it with data
 chart = BarTemplate(title="Citys", subtitle="this is the subtitle of A", xaxis='Metric', yaxis='Score')
 chart.init_option(xdata=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
                ydata={'BJ Score': [random.randint(0, 100) for _ in range(11)],
                       'SH Score': [random.randint(0, 100) for _ in range(11)],
                       'HK Score': [random.randint(0, 100) for _ in range(11)]
                       })
-html.append_chart(chart)
 
-# create the 2nd chart and append it into html template
-chart = BarTemplate(title="Chart B", subtitle="this is the subtitle of B", xaxis='Name', yaxis='Age')
-chart.init_option(xdata=['LiHua', 'XiaoMing', 'Ada', 'Happe', 'Aldenhovel', 'JOJO', 'MXY'],
-               ydata={'Age': [random.randint(20, 65) for _ in range(7)],})
+# Once the chart is initialized, 
+# we can append it into the html template
 html.append_chart(chart)
 
 # export the html template to a file
 html.export('../tmp/bar_example.html')
 ```
 
-如上面的代码和效果图所示，这个例子位于 `examples/bar_example.py` 通过简单方法即可生成一个 HTML 报表网页。
-
-
+更多其他模板的使用示例代码会放在 `examples/` 中，如果想查看运行结果，请在 `tmp/` 中查看对应的 HTML 文件。
 
 **更多模板会后续更新**
 

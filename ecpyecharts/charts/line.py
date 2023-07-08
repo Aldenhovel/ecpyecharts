@@ -1,28 +1,30 @@
-
 import random
-from typing import List, Dict
+from typing import Dict, List
+
+from ..colors import Colors_Fade
 
 _template = \
-r""" 
+r"""
 <div id="chart_$id$" style="width: 80%; height: 500px; border-radius: 20px; background-color: white; margin: 10px auto"></div>
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('chart_$id$'));
     option_$id$ = {
-        grid: { left: '15%', right: '15%', top: '15%', bottom: '10%'},
-        title: {text: '$title$', subtext: '$subtitle$', left: 'left'},
-        xAxis: { type: 'category', data: $xdata$, show: $$show_xaxis$$, name: '$xaxis$'},
-        yAxis: { type: 'value', name: '$yaxis$' },
-        //toolbox: { show: true, feature: { magicType: { show: true, type: ['line', 'bar'] }, restore: { show: true }, saveAsImage: { show: true }}},
-        tooltip: { trigger: 'axis', position: function (pt) { return [pt[0], '10%']; }},
-        legend: {},
-        $$datazoom$$
-        series: [$series$]
-    };
+    grid: { left: '15%', right: '15%', top: '15%', bottom: '10%'},
+    tooltip: {trigger: 'axis', axisPointer: { type: 'cross', label: { backgroundColor: '#6a7985' } } },
+    title: { left: 'left', text: '$title$', subtext: '$subtitle$' },
+    //toolbox: { show: true, feature: { restore: { show: true }, saveAsImage: { show: true }}},
+    xAxis: { type: 'category', data: $xdata$, boundaryGap: false, show: $$show_xaxis$$, name: '$xaxis$'},
+    yAxis: { type: 'value', boundaryGap: [0, '50%'] },
+    legend: {},
+    $$datazoom$$
+    series: [$series$],
+    
+};
     myChart.setOption(option_$id$);
 </script>
 """
 
-class BarTemplate():
+class LineTemplate():
 
     def __init__(self, id='', title='', subtitle='', xaxis='X', yaxis='Y'):
         self.org_template = _template
@@ -33,29 +35,41 @@ class BarTemplate():
         self.xaxis = xaxis
         self.yaxis = yaxis
 
-
-
     def init_option(self, xdata: List[str], ydata: Dict[str, List]):
 
         y_lens = [len(item[1]) for item in ydata.items()]
         assert min(y_lens) == max(y_lens), f"all y data should have the same length, but got {y_lens}"
+
 
         show_xaxis = 'true'
         datazoom = ''
         if len(xdata) > 10:
             # use data zoom mode
             show_xaxis = 'false'
-            datazoom = r"dataZoom: [{ type: 'inside', start: 0, end: 100 }, { start: 0, end: 100 }, {show: true, yAxisIndex: 0, filterMode: 'empty', width: 30, height: '80%', showDataShadow: false, left: '86%' }],"
-
-
+            datazoom = r"dataZoom: [{ start: 0, end: 100 }],"
 
         assert min(y_lens) == len(xdata), f"x and y data should have the same length, but got {len(xdata)} and {min(y_lens)}"
+
 
         xdata_template = str(xdata)
 
         series_template = ""
-        for name, array in ydata.items():
-            series_template = series_template + '{' + f"name: '{name}', type: 'bar', data: {str(array)}" + '},'
+
+        for ix, (name, array) in enumerate(ydata.items()):
+            color0, color1 = [*Colors_Fade.items()][ix % len(Colors_Fade.keys())][1]
+
+            series_item = \
+            r"""
+            { 
+            name: '$name$', type: 'line', symbol: 'none', sampling: 'lttb', itemStyle: { color: 'rgb$color1$' },
+            areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgb$color1$'}, { offset: 1, color: 'rgb$color0$'}])},
+            data: $array$
+            },
+            """.replace('$name$', name)\
+                .replace('$array$', str(array))\
+                .replace('$color0$', str(color0))\
+                .replace('$color1$', str(color1))
+            series_template += series_item
 
         self.wf_template = self.wf_template.replace('$id$', self.id)\
             .replace('$title$', self.title)\
@@ -73,7 +87,4 @@ class BarTemplate():
         for kw in keywords:
             export_template.replace(kw, '')
         return export_template
-
-
-
 

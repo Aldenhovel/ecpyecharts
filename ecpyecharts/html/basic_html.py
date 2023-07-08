@@ -1,6 +1,6 @@
 from .echarts_script import echarts_js_template
 _template = \
-"""
+r"""
 <!DOCTYPE html>
 <html lang="en">
 <head>

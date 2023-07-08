@@ -3,7 +3,7 @@ from ecpyecharts.html import HTMLTemplate
 from ecpyecharts.charts import BarTemplate
 
 # create a html template
-html = HTMLTemplate(title="hello", background_color="black")
+html = HTMLTemplate(title="hello", background_color="gray")
 
 # create a bar chart template and init it, append it into the html template
 chart = BarTemplate(title="Citys", subtitle="this is the subtitle of A", xaxis='Metric', yaxis='Score')
