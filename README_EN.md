@@ -14,7 +14,7 @@ Our development goal for ecpyecharts is to simplify the design burden for develo
 
 ## Examples
 
-![bar_example](imgs/bar_example.png)
+![bar_example](imgs\example01.png)
 
 ```python
 import random

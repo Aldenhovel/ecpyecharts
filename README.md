@@ -16,7 +16,7 @@
 
 ## 示例
 
-![bar_example](imgs/bar_example.png)
+![bar_example](imgs/example01.png)
 
 ```python
 import random
