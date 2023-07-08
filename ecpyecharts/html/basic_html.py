@@ -10,7 +10,7 @@ _template = \
 </head>
 <body style="background-color: $background_color$">
 
-    $options$
+    $charts$
 </body>
 </html>
 """
@@ -46,12 +46,12 @@ class HTMLTemplate():
             .replace('$background_color$', self.background_color)\
             .replace('$echarts_js_template$', echarts_js_template)
 
-    def add_chart(self, chart_option):
+    def append_chart(self, chart_option):
         print(chart_option.export())
-        self.wf_template = self.wf_template.replace('$options$', f"{chart_option.export()}\n$options$")
+        self.wf_template = self.wf_template.replace('$charts$', f"{chart_option.export()}\n$charts$")
 
     def export(self, path="res.html"):
-        keywords = ['$title$', '$background_color$', '$options$']
+        keywords = ['$title$', '$background_color$', '$charts$']
         export_template = self.wf_template
         for kw in keywords:
             export_template = export_template.replace(kw, '')

@@ -1,6 +1,5 @@
 
 import random
-import pandas as pd
 from typing import List, Dict
 
 _template = \
@@ -22,7 +21,7 @@ _template = \
 </script>
 """
 
-class BarOption():
+class BarTemplate():
 
     def __init__(self, id='', title='', subtitle='', xaxis='X', yaxis='Y'):
         self.org_template = _template

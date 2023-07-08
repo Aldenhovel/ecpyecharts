@@ -20,8 +20,8 @@
 
 ```python
 import random
-from ecpyecharts.templates import HTMLTemplate
-from ecpyecharts.options.OP_bar import BarOption
+from ecpyecharts.html import HTMLTemplate
+from ecpyecharts.charts.bar import BarOption
 
 html = HTMLTemplate(title="hello", background_color="black")
 op = BarOption(title="Citys", subtitle="this is the subtitle of A", xaxis='Metric', yaxis='Score')
@@ -34,7 +34,7 @@ html.add_chart(op)
 
 op = BarOption(title="Chart B", subtitle="this is the subtitle of B", xaxis='Name', yaxis='Age')
 op.init_option(xdata=['LiHua', 'XiaoMing', 'Ada', 'Happe', 'Aldenhovel', 'JOJO', 'MXY'],
-               ydata={'Age': [random.randint(0, 100) for _ in range(7)],})
+               ydata={'Age': [random.randint(0, 100) for _ in range(7)], })
 html.add_chart(op)
 html.export('../tmp/bar_example.html')
 ```
