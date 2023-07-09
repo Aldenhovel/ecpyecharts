@@ -12,39 +12,39 @@
 <body style="background-color: gray">
 
      
-<div id="chart_328808" style="width: 80%; height: 500px; border-radius: 20px; background-color: white; margin: 10px auto"></div>
+<div id="chart_985326" style="width: 80%; height: 500px; border-radius: 20px; background-color: white; margin: 10px auto"></div>
 <script type="text/javascript">
-    var myChart = echarts.init(document.getElementById('chart_328808'));
-    option_328808 = {
+    var myChart = echarts.init(document.getElementById('chart_985326'));
+    option_985326 = {
         grid: { left: '15%', right: '15%', top: '15%', bottom: '10%'},
         title: {text: 'Citys', subtext: 'this is the subtitle of A', left: 'left'},
         xAxis: { type: 'category', data: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'], show: false, name: 'Metric'},
         yAxis: { type: 'value', name: 'Score' },
         //toolbox: { show: true, feature: { magicType: { show: true, type: ['line', 'bar'] }, restore: { show: true }, saveAsImage: { show: true }}},
-        tooltip: { trigger: 'axis', position: function (pt) { return [pt[0], '10%']; }},
+        tooltip: {trigger: 'axis', axisPointer: { type: 'cross', label: { backgroundColor: '#6a7985' } } },
         legend: {},
-        dataZoom: [{ type: 'inside', start: 0, end: 100 }, { start: 0, end: 100 }, {show: true, yAxisIndex: 0, filterMode: 'empty', width: 30, height: '80%', showDataShadow: false, left: '86%' }],
-        series: [{name: 'BJ Score', type: 'bar', data: [99, 34, 49, 74, 78, 89, 70, 19, 97, 76, 94]},{name: 'SH Score', type: 'bar', data: [95, 63, 14, 67, 46, 87, 22, 50, 74, 79, 70]},{name: 'HK Score', type: 'bar', data: [3, 29, 91, 34, 17, 87, 16, 91, 34, 90, 69]},]
+        dataZoom: [{ type: 'inside', start: 0, end: 100 }, { start: 0, end: 100 }, {show: true, yAxisIndex: 0, filterMode: 'empty', width: 30, height: '75%', showDataShadow: false, left: '86%' }],
+        series: [{name: 'BJ Score', type: 'bar', data: [29, 32, 60, 42, 33, 74, 23, 92, 82, 17, 7], color: 'rgb(11, 50, 140)'},{name: 'SH Score', type: 'bar', data: [25, 98, 57, 32, 100, 34, 2, 37, 55, 56, 62], color: 'rgb(188, 56, 35)'},{name: 'HK Score', type: 'bar', data: [15, 10, 40, 66, 97, 81, 41, 95, 57, 76, 74], color: 'rgb(0, 149, 62)'},]
     };
-    myChart.setOption(option_328808);
+    myChart.setOption(option_985326);
 </script>
 
  
-<div id="chart_614059" style="width: 80%; height: 500px; border-radius: 20px; background-color: white; margin: 10px auto"></div>
+<div id="chart_744969" style="width: 80%; height: 500px; border-radius: 20px; background-color: white; margin: 10px auto"></div>
 <script type="text/javascript">
-    var myChart = echarts.init(document.getElementById('chart_614059'));
-    option_614059 = {
+    var myChart = echarts.init(document.getElementById('chart_744969'));
+    option_744969 = {
         grid: { left: '15%', right: '15%', top: '15%', bottom: '10%'},
         title: {text: 'Chart B', subtext: 'this is the subtitle of B', left: 'left'},
         xAxis: { type: 'category', data: ['LiHua', 'XiaoMing', 'Ada', 'Happe', 'Aldenhovel', 'JOJO', 'MXY'], show: true, name: 'Name'},
         yAxis: { type: 'value', name: 'Age' },
         //toolbox: { show: true, feature: { magicType: { show: true, type: ['line', 'bar'] }, restore: { show: true }, saveAsImage: { show: true }}},
-        tooltip: { trigger: 'axis', position: function (pt) { return [pt[0], '10%']; }},
+        tooltip: {trigger: 'axis', axisPointer: { type: 'cross', label: { backgroundColor: '#6a7985' } } },
         legend: {},
         
-        series: [{name: 'Age', type: 'bar', data: [59, 46, 65, 50, 40, 59, 64]},]
+        series: [{name: 'Age', type: 'bar', data: [27, 21, 34, 56, 34, 29, 24], color: 'rgb(11, 50, 140)'},]
     };
-    myChart.setOption(option_614059);
+    myChart.setOption(option_744969);
 </script>
 
 

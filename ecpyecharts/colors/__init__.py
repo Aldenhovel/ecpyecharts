@@ -1,1 +1,1 @@
-from .Color import Colors, Colors_Fade
+from .Color import *

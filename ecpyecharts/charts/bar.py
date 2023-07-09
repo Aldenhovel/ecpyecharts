@@ -1,6 +1,7 @@
 
 import random
 from typing import List, Dict
+from ..colors import Color
 
 _template = \
 r""" 
@@ -13,7 +14,7 @@ r"""
         xAxis: { type: 'category', data: $xdata$, show: $$show_xaxis$$, name: '$xaxis$'},
         yAxis: { type: 'value', name: '$yaxis$' },
         //toolbox: { show: true, feature: { magicType: { show: true, type: ['line', 'bar'] }, restore: { show: true }, saveAsImage: { show: true }}},
-        tooltip: { trigger: 'axis', position: function (pt) { return [pt[0], '10%']; }},
+        tooltip: {trigger: 'axis', axisPointer: { type: 'cross', label: { backgroundColor: '#6a7985' } } },
         legend: {},
         $$datazoom$$
         series: [$series$]
@@ -45,17 +46,17 @@ class BarTemplate():
         if len(xdata) > 10:
             # use data zoom mode
             show_xaxis = 'false'
-            datazoom = r"dataZoom: [{ type: 'inside', start: 0, end: 100 }, { start: 0, end: 100 }, {show: true, yAxisIndex: 0, filterMode: 'empty', width: 30, height: '80%', showDataShadow: false, left: '86%' }],"
-
-
+            datazoom = r"dataZoom: [{ type: 'inside', start: 0, end: 100 }, { start: 0, end: 100 }, {show: true, yAxisIndex: 0, filterMode: 'empty', width: 30, height: '75%', showDataShadow: false, left: '86%' }],"
 
         assert min(y_lens) == len(xdata), f"x and y data should have the same length, but got {len(xdata)} and {min(y_lens)}"
-
         xdata_template = str(xdata)
 
         series_template = ""
-        for name, array in ydata.items():
-            series_template = series_template + '{' + f"name: '{name}', type: 'bar', data: {str(array)}" + '},'
+        colorset = [*Color.C_11_S_Chinese_Style.items()]
+        for ix, (name, array) in enumerate(ydata.items()):
+            color = colorset[ix % len(colorset)][1]
+            print(color)
+            series_template = series_template + '{' + f"name: '{name}', type: 'bar', data: {str(array)}, color: 'rgb{color}'" + '},'
 
         self.wf_template = self.wf_template.replace('$id$', self.id)\
             .replace('$title$', self.title)\

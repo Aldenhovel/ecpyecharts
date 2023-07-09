@@ -1,7 +1,7 @@
 import random
 from typing import Dict, List
 
-from ..colors import Colors_Fade
+from ..colors import Color
 
 _template = \
 r"""
@@ -9,12 +9,12 @@ r"""
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('chart_$id$'));
     option_$id$ = {
-    grid: { left: '15%', right: '15%', top: '15%', bottom: '10%'},
+    grid: { left: '10%', right: '10%', top: '15%', bottom: '10%'},
     tooltip: {trigger: 'axis', axisPointer: { type: 'cross', label: { backgroundColor: '#6a7985' } } },
     title: { left: 'left', text: '$title$', subtext: '$subtitle$' },
     //toolbox: { show: true, feature: { restore: { show: true }, saveAsImage: { show: true }}},
     xAxis: { type: 'category', data: $xdata$, boundaryGap: false, show: $$show_xaxis$$, name: '$xaxis$'},
-    yAxis: { type: 'value', boundaryGap: [0, '50%'] },
+    yAxis: { type: 'value', boundaryGap: [0, '50%'], name: '$yaxis$' },
     legend: {},
     $$datazoom$$
     series: [$series$],
@@ -49,21 +49,19 @@ class LineTemplate():
             datazoom = r"dataZoom: [{ start: 0, end: 100 }],"
 
         assert min(y_lens) == len(xdata), f"x and y data should have the same length, but got {len(xdata)} and {min(y_lens)}"
-
-
         xdata_template = str(xdata)
 
         series_template = ""
-
+        colorset = [*Color.C_3_M_Chinese_Style.items()]
         for ix, (name, array) in enumerate(ydata.items()):
-            color0, color1 = [*Colors_Fade.items()][ix % len(Colors_Fade.keys())][1]
+            color0, color1 = colorset[ix % len(colorset)][1]
 
             series_item = \
             r"""
             { 
-            name: '$name$', type: 'line', symbol: 'none', sampling: 'lttb', itemStyle: { color: 'rgb$color1$' },
-            areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgb$color1$'}, { offset: 1, color: 'rgb$color0$'}])},
-            data: $array$
+                name: '$name$', type: 'line', symbol: 'none', sampling: 'lttb', itemStyle: { color: 'rgb$color1$' },
+                areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: 'rgb$color1$'}, { offset: 1, color: 'rgb$color0$'}])},
+                data: $array$
             },
             """.replace('$name$', name)\
                 .replace('$array$', str(array))\

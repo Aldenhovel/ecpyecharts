@@ -13,10 +13,10 @@ html = HTMLTemplate(title="hello", background_color="gray")
 
 # create a bar chart template and init it, append it into the html template
 chart = LineTemplate(title="Citys", subtitle="this is the subtitle of A", xaxis='Metric', yaxis='Score')
-chart.init_option(xdata=[str(i) for i in range(200)],
-               ydata={'BJ Score': gen_random_curve(200, exp_bais=10),
-                      'SH Score': gen_random_curve(200, exp_bais=5),
-                      'HK Score': gen_random_curve(200, exp_bais=-10)
+chart.init_option(xdata=[str(i) for i in range(20)],
+               ydata={'BJ Score': gen_random_curve(20, exp_bais=10),
+                      'SH Score': gen_random_curve(20, exp_bais=5),
+                      'HK Score': gen_random_curve(20, exp_bais=-10)
                       })
 html.append_chart(chart)
 
