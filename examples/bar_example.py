@@ -10,7 +10,8 @@ chart = BarTemplate(title="Citys", subtitle="this is the subtitle of A", xaxis='
 chart.init_option(xdata=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
                ydata={'BJ Score': [random.randint(0, 100) for _ in range(11)],
                       'SH Score': [random.randint(0, 100) for _ in range(11)],
-                      'HK Score': [random.randint(0, 100) for _ in range(11)]
+                      'HK Score': [random.randint(0, 100) for _ in range(11)],
+                      'CA Score': [random.randint(0, 100) for _ in range(11)],
                       })
 html.append_chart(chart)
 

@@ -14,12 +14,12 @@ Our development goal for ecpyecharts is to simplify the design burden for develo
 
 ## Examples
 
-![bar01](imgs/bar01.png)
-![line01](imgs/line01.png)
+![#1](examples/imgs/bar_example_02.png)
+![#2](examples/imgs/line_example_01.png)
 
 ## How to use ecpyecharts
 
-Please refer to this code snippet from `examples/bar_example.py`, which briefly introduces the most direct use of ecpyecharts:
+Please refer to this code, which briefly introduces the most direct use of ecpyecharts:
 
 ```python
 import random

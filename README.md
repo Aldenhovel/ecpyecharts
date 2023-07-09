@@ -16,12 +16,12 @@
 
 ## 示例
 
-![bar01](imgs/bar01.png)
-![line01](imgs/line01.png)
+![#1](examples/imgs/bar_example_02.png)
+![#2](examples/imgs/line_example_01.png)
 
 ## 如何使用 ecpyecharts
 
-请参考这段来自 `examples/bar_example.py` 的代码片段，它简单介绍了 ecpyecharts 的最直接使用方法：
+请参考这段代码片段，它简单介绍了 ecpyecharts 的最直接使用方法：
 
 ```python
 import random

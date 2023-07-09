@@ -5,7 +5,7 @@ from ..colors import Color
 
 _template = \
 r"""
-<div id="chart_$id$" style="width: 80%; height: 500px; border-radius: 20px; background-color: white; margin: 10px auto"></div>
+<div id="chart_$id$" style="width: 80%; height: 500px; border-radius: 10px; background-color: white; margin: 10px auto"></div>
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('chart_$id$'));
     option_$id$ = {
