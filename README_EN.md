@@ -2,8 +2,8 @@
 
 <h4 align="center">
     <p>
-        <b>English</b> |
-        <a href="https://github.com/Aldenhovel/ecpyecharts/blob/main/README.md">简体中文</a>
+        <a href="https://github.com/Aldenhovel/ecpyecharts/blob/main/README.md">简体中文</a> |
+        <b>English</b> 
     <p>
 </h4>
 
