@@ -16,10 +16,27 @@ Our development goal for ecpyecharts is to simplify the design burden for develo
 
 ![#1](examples/imgs/bar_example_02.png)
 ![#2](examples/imgs/line_example_01.png)
+![#3](examples/imgs/pie_example_01.png)
 
 ## How to use ecpyecharts
 
-Please refer to this code, which briefly introduces the most direct use of ecpyecharts:
+1. Download or clone this repository.
+```bash
+git clone git@github.com:Aldenhovel/ecpyecharts.git && cd ecpyecharts
+```
+
+2. Find the desired template in `examples/`.
+```bash
+cd examples
+```
+
+3. Edit the code file corresponding to the template, and replace the data in the sample code with your own data.
+```bash
+cp xxx_example.py my_test.py
+vi my_test.py
+```
+
+4. Please refer to this code snippet, which briefly introduces the most direct way to use ecpyecharts.
 
 ```python
 import random
@@ -46,6 +63,6 @@ html.append_chart(chart)
 html.export('../tmp/bar_example.html')
 ```
 
-More sample codes for using other templates will be placed in `examples/`. If you want to view the running results, please view the corresponding HTML files in `tmp/`.
+Templates will be placed in `examples/`. If you want to view the running results, please view the corresponding HTML files in `tmp/`.
 
 **More templates will be updated later**

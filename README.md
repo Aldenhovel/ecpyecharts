@@ -22,7 +22,24 @@
 
 ## 如何使用 ecpyecharts
 
-请参考这段代码片段，它简单介绍了 ecpyecharts 的最直接使用方法：
+1. 下载或克隆此仓库。
+```bash
+git clone git@github.com:Aldenhovel/ecpyecharts.git && cd ecpyecharts
+```
+
+2. 在 `examples/` 中找到想要的模板。
+```bash
+cd examples
+```
+
+3. 编辑模板对应的代码文件，使用自己的数据代替示例代码中的数据。
+```bash
+cp xxx_example.py my_test.py
+vi my_test.py
+......
+```
+
+4. 请参考这段代码片段，它简单介绍了 ecpyecharts 的最直接使用方法：
 
 ```python
 import random
@@ -49,7 +66,7 @@ html.append_chart(chart)
 html.export('../tmp/bar_example.html')
 ```
 
-更多其他模板的使用示例代码会放在 `examples/` 中，如果想查看运行结果，请在 `tmp/` 中查看对应的 HTML 文件。
+所有模板的使用示例代码会放在 `examples/` 中，如果想查看运行结果，请在 `tmp/` 中查看对应的 HTML 文件。
 
 **更多模板会后续更新**
 
