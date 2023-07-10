@@ -66,6 +66,6 @@ class HTMLTemplate():
 
 if __name__ == "__main__":
 
-    with open("echarts4.3.min.js", 'r', encoding='utf-8') as f:
+    with open("echarts43.js", 'r', encoding='utf-8') as f:
         echarts_js_template = f.read()
         print(echarts_js_template)
