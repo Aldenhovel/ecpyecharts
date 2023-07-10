@@ -15,7 +15,7 @@ r"""
         yAxis: { type: 'value', name: '$yaxis$' },
         //toolbox: { show: true, feature: { magicType: { show: true, type: ['line', 'bar'] }, restore: { show: true }, saveAsImage: { show: true }}},
         tooltip: {trigger: 'axis', axisPointer: { type: 'cross', label: { backgroundColor: '#6a7985' } } },
-        legend: {},
+        legend: {orient: 'vertical', left: 'left', top: '12%'},
         $$datazoom$$
         series: [$series$]
     };

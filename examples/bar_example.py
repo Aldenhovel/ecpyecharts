@@ -5,6 +5,7 @@ from ecpyecharts.charts import BarTemplate
 # create a html template
 html = HTMLTemplate(title="hello", background_color="gray")
 
+
 # create a bar chart template and init it, append it into the html template
 chart = BarTemplate(title="Citys", subtitle="this is the subtitle of A", xaxis='Metric', yaxis='Score')
 chart.init_option(xdata=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
@@ -15,11 +16,13 @@ chart.init_option(xdata=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
                       })
 html.append_chart(chart)
 
+
 # create the 2nd chart and append it into html template
 chart = BarTemplate(title="Chart B", subtitle="this is the subtitle of B", xaxis='Name', yaxis='Age')
 chart.init_option(xdata=['LiHua', 'XiaoMing', 'Ada', 'Happe', 'Aldenhovel', 'JOJO', 'MXY'],
                ydata={'Age': [random.randint(20, 65) for _ in range(7)],})
 html.append_chart(chart)
+
 
 # export the html template to a file
 html.export('../tmp/bar_example.html')

@@ -9,13 +9,13 @@ r"""
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('chart_$id$'));
     option_$id$ = {
-    grid: { left: '10%', right: '10%', top: '15%', bottom: '10%'},
+    grid: { left: '15%', right: '10%', top: '15%', bottom: '10%'},
     tooltip: {trigger: 'axis', axisPointer: { type: 'cross', label: { backgroundColor: '#6a7985' } } },
     title: { left: 'left', text: '$title$', subtext: '$subtitle$' },
     //toolbox: { show: true, feature: { restore: { show: true }, saveAsImage: { show: true }}},
     xAxis: { type: 'category', data: $xdata$, boundaryGap: false, show: $$show_xaxis$$, name: '$xaxis$'},
     yAxis: { type: 'value', boundaryGap: [0, '50%'], name: '$yaxis$' },
-    legend: {},
+    legend: { orient: 'vertical', left: 'left', top: '12%' },
     $$datazoom$$
     series: [$series$],
     
