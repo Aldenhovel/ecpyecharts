@@ -1,4 +1,11 @@
-# ecpyecharts
+<h1 align="center">ecpyecharts</h1>
+
+<h4 align="center">
+    <p>
+        <b>English</b> |
+        <a href="https://github.com/Aldenhovel/ecpyecharts/blob/main/README.md">简体中文</a>
+    <p>
+</h4>
 
 ## Introduction
 
