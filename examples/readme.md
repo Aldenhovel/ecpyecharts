@@ -22,3 +22,9 @@ All results have corresponding HTML files under `tmp/`, please take that as the 
 
 ![pieexample01](imgs/pie_example_01.png)
 ![pieexample02](imgs/pie_example_02.png)
+
+### 4 散点图 Scatter
+#### 4.1 scatter_example
+
+![scatterexample01](imgs/scatter_example_01.png)
+![scatterexample02](imgs/scatter_example_02.png)

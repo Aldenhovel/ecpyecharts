@@ -27,6 +27,7 @@
 ![#1](examples/imgs/bar_example_02.png)
 ![#2](examples/imgs/line_example_01.png)
 ![#3](examples/imgs/pie_example_01.png)
+![#4](examples/imgs/scatter_example_01.png)
 
 ## 如何使用 ecpyecharts
 

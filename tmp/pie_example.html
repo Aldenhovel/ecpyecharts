@@ -12,39 +12,40 @@
 <body style="background-color: gray">
 
     
-<div id="chart_211239" style="width: 80%; height: 500px; border-radius: 10px; background-color: white; margin: 10px auto"></div>
+<div id="chart_42393" style="width: 80%; height: 500px; border-radius: 10px; background-color: white; margin: 10px auto"></div>
 <script type="text/javascript">
-    var myChart = echarts.init(document.getElementById('chart_211239'));
-    option_211239 = { 
+    var myChart = echarts.init(document.getElementById('chart_42393'));
+    option_42393 = {
         title: { text: 'Citys', subtext: 'this is the subtitle of A', left: 'left'},
-        tooltip: { trigger: 'item' },
-        legend: { orient: 'vertical', left: 'left', top: '12%' },
+        xAxis: { name: $xaxis$, show: true},
+        yAxis: { name: $yaxis$, show: true, scale: true },
+        legend: {orient: 'vertical', left: 'left', top: '12%' },
+        grid: { left: '15%', right: '15%', top: '15%', bottom: '10%' },
         series: [
-            { name: 'BJ', type: 'pie', radius: '33%', center: ['20%', '50%'], data: [{name: 'A', value: '12'},{name: 'B', value: '33'},{name: 'C', value: '24'},{name: 'D', value: '53'},], emphasis: { itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0, 0, 0, 0.5)'}}},
+            {
+            name: '1990s',
+            data: [[286, 77, 1709, 'Australia'], [311, 77, 2440, 'Canada'], [154, 68, 5773, 'China'], [130, 74, 1082, 'Cuba'], [599, 75, 4705, 'Finland'], [476, 77, 3299, 'France'], [316, 75, 8237, 'Germany'], [286, 78, 2830, 'Iceland']],
+            type: 'scatter',
+            symbolSize: function (data) { return Math.sqrt(data[2]) / 9562; },
+            emphasis: { focus: 'self' },
+            labelLayout: { y: 40, align: 'center', hideOverlap: true, moveOverlap: 'shiftX' },
+            labelLine: { show: true, length2: 5, lineStyle: { color: '#bbb' }},
+            label: { show: true, formatter: function (param) { return param.data[3]; }, minMargin: 10, position: 'top'}
+            },
             
-            { name: 'SH', type: 'pie', radius: '33%', center: ['40%', '50%'], data: [{name: 'A', value: '12'},{name: 'B', value: '13'},{name: 'C', value: '44'},{name: 'D', value: '53'},], emphasis: { itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0, 0, 0, 0.5)'}}},
-            
-            { name: 'CA', type: 'pie', radius: '33%', center: ['60%', '50%'], data: [{name: 'A', value: '4'},{name: 'C', value: '74'},{name: 'D', value: '53'},], emphasis: { itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0, 0, 0, 0.5)'}}},
-            
-            { name: 'HK', type: 'pie', radius: '33%', center: ['80%', '50%'], data: [{name: 'A', value: '12'},{name: 'B', value: '33'},{name: 'C', value: '24'},{name: 'F', value: '5'},], emphasis: { itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0, 0, 0, 0.5)'}}},
+            {
+            name: '2000s',
+            data: [[44056, 81.8, 8973, 'Australia'], [43294, 81.7, 3527, 'Canada'], [13334, 76.9, 1943, 'China'], [21291, 78.5, 9562, 'Cuba'], [38923, 80.8, 5457, 'Finland']],
+            type: 'scatter',
+            symbolSize: function (data) { return Math.sqrt(data[2]) / 9562; },
+            emphasis: { focus: 'self' },
+            labelLayout: { y: 40, align: 'center', hideOverlap: true, moveOverlap: 'shiftX' },
+            labelLine: { show: true, length2: 5, lineStyle: { color: '#bbb' }},
+            label: { show: true, formatter: function (param) { return param.data[3]; }, minMargin: 10, position: 'top'}
+            },
             ]
-    };
-    myChart.setOption(option_211239);
-</script>
-
-
-<div id="chart_681311" style="width: 80%; height: 500px; border-radius: 10px; background-color: white; margin: 10px auto"></div>
-<script type="text/javascript">
-    var myChart = echarts.init(document.getElementById('chart_681311'));
-    option_681311 = { 
-        title: { text: 'Citys', subtext: 'this is the subtitle of A', left: 'left'},
-        tooltip: { trigger: 'item' },
-        legend: { orient: 'vertical', left: 'left', top: '12%' },
-        series: [
-            { name: 'BJ', type: 'pie', radius: '60%', center: ['50%', '50%'], data: [{name: 'A', value: '12'},{name: 'B', value: '33'},{name: 'C', value: '24'},{name: 'D', value: '53'},], emphasis: { itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0, 0, 0, 0.5)'}}},
-            ]
-    };
-    myChart.setOption(option_681311);
+};
+    myChart.setOption(option_42393);
 </script>
 
 

@@ -1,4 +1,6 @@
-from .echarts_script import echarts_js_template
+# Latest Echarts Version: 5.4 , July 2023
+from .echarts_script import echarts54_js_template
+
 _template = \
 r"""
 <!DOCTYPE html>
@@ -44,7 +46,7 @@ class HTMLTemplate():
         self.wf_template = self.org_template\
             .replace('$title$', self.title)\
             .replace('$background_color$', self.background_color)\
-            .replace('$echarts_js_template$', echarts_js_template)
+            .replace('$echarts_js_template$', echarts54_js_template)
 
     def append_chart(self, chart_option):
         print(chart_option.export())
@@ -64,6 +66,6 @@ class HTMLTemplate():
 
 if __name__ == "__main__":
 
-    with open("echarts.min.js", 'r', encoding='utf-8') as f:
+    with open("echarts4.3.min.js", 'r', encoding='utf-8') as f:
         echarts_js_template = f.read()
         print(echarts_js_template)
