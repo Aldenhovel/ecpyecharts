@@ -3,7 +3,7 @@ from typing import Dict, List, Any
 
 _template = \
 r"""
-<div id="chart_$id$" style="width: 80%; height: 500px; border-radius: 10px; background-color: white; margin: 10px auto"></div>
+<div id="chart_$id$" class="chartbox" style="width: $divWidth$; height: $divHeight$"></div>
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('chart_$id$'));
     option_$id$ = {
@@ -13,7 +13,7 @@ r"""
         tooltip: { formatter: function (param) { var data = param.data; return 'Position: ' + data[0] + ', ' + data[1] + '<br>Value: ' +  data[2];
     }},
         legend: {orient: 'vertical', left: 'left', top: '12%' },
-        grid: { left: '15%', right: '15%', top: '20%', bottom: '10%' },
+        grid: { left: '17%', right: '10%', top: '20%', bottom: '10%' },
         series: [$series$]
 };
     myChart.setOption(option_$id$);

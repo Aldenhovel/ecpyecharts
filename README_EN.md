@@ -21,9 +21,10 @@ Our development goal for ecpyecharts is to simplify the design burden for develo
 
 ## Examples
 
-![#1](examples/imgs/bar_example_02.png)
+- Using tight HTML template.
+![#1](examples/imgs/tight_html_02.png)
+- Using basic HTML template.
 ![#2](examples/imgs/line_example_01.png)
-![#3](examples/imgs/pie_example_01.png)
 ![#4](examples/imgs/scatter_example_01.png)
 
 ## How to use ecpyecharts

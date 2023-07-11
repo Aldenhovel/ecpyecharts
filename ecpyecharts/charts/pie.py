@@ -3,20 +3,22 @@ from typing import Dict, List, Any
 
 _template = \
     r"""
-<div id="chart_$id$" style="width: 80%; height: 500px; border-radius: 10px; background-color: white; margin: 10px auto"></div>
+<div id="chart_$id$" class="chartbox" style="width: $divWidth$; height: $divHeight$"></div>
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('chart_$id$'));
     option_$id$ = { 
         title: { text: '$title$', subtext: '$subtitle$', left: 'left'},
+        grid: { left: '17%', right: '10%', top: '15%', bottom: '10%'},
         tooltip: { trigger: 'item' },
         legend: { orient: 'vertical', left: 'left', top: '12%' },
+        labelLine: { show: false },
         series: [$series$]
     };
     myChart.setOption(option_$id$);
 </script>
 """
 
-_RADIUS = [0, 60, 50, 37.5, 33]
+_RADIUS = [0, 60, 50, 37.5, 30]
 
 
 class PieTemplate():
@@ -41,7 +43,7 @@ class PieTemplate():
                 data_template = data_template + "{" + f"name: '{name}', value: '{value}'" + "},"
             this_series_template = \
             r"""
-            { name: '$group_name$', type: 'pie', radius: '$radius$%', center: ['$center_h$%', '$center_v$%'], data: [$data$], emphasis: { itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0, 0, 0, 0.5)'}}},
+            { name: '$group_name$', type: 'pie', radius: '$radius$%', center: ['$center_h$%', '$center_v$%'], label:{ show: false }, data: [$data$], emphasis: { itemStyle: { shadowBlur: 10, shadowOffsetX: 0, shadowColor: 'rgba(0, 0, 0, 0.5)'}}},
             """.replace('$data$', data_template).replace('$group_name$', data_group_name[i])\
                 .replace('$radius$', str(_RADIUS[groups_count]))\
                 .replace('$center_h$', str(center_position[0]))\

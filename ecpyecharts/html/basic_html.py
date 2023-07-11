@@ -9,9 +9,15 @@ r"""
     <meta charset="utf-8">
     <title>$title$</title>
     $echarts_js_template$
+    <style>
+    .chartbox {
+        margin: 10px auto;
+        border-radius: 10px;
+        background-color: white
+    }
+    </style>
 </head>
 <body style="background-color: $background_color$">
-
     $charts$
 </body>
 </html>
@@ -28,12 +34,13 @@ class HTMLTemplate():
 
     """
 
-    def __init__(self, title="title", background_color="lightgray"):
+    def __init__(self, title="title", background_color="lightgray", chart_height='500px'):
         # 原始的 template
         self.org_template = _template
         # 正在工作中处理的 template
         self.wf_template = _template
         self.title = title
+        self.chart_height = chart_height
 
         assert background_color in _supported_background_color, f"Not supported background color, expect {_supported_background_color}"
         self.background_color = background_color
@@ -54,6 +61,7 @@ class HTMLTemplate():
 
     def export(self, path="res.html"):
         keywords = ['$title$', '$background_color$', '$charts$']
+        self.wf_template = self.wf_template.replace('$divHeight$', self.chart_height).replace('$divWidth$', '80%')
         export_template = self.wf_template
         for kw in keywords:
             export_template = export_template.replace(kw, '')

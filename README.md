@@ -24,9 +24,11 @@
 
 ## 示例
 
-![#1](examples/imgs/bar_example_02.png)
+- 使用紧凑 HTML 模板。
+![#1](examples/imgs/tight_html_02.png)
+- 
+- 使用一般 HTML 模板。
 ![#2](examples/imgs/line_example_01.png)
-![#3](examples/imgs/pie_example_01.png)
 ![#4](examples/imgs/scatter_example_01.png)
 
 ## 如何使用 ecpyecharts

@@ -5,11 +5,11 @@ from ..colors import Color
 
 _template = \
 r""" 
-<div id="chart_$id$" style="width: 80%; height: 500px; border-radius: 10px; background-color: white; margin: 10px auto"></div>
+<div class="chartbox" id="chart_$id$" style="width: $divWidth$; height: $divHeight$"></div>
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('chart_$id$'));
     option_$id$ = {
-        grid: { left: '15%', right: '15%', top: '15%', bottom: '10%'},
+        grid: { left: '17%', right: '10%', top: '15%', bottom: '10%'},
         title: {text: '$title$', subtext: '$subtitle$', left: 'left'},
         xAxis: { type: 'category', data: $xdata$, show: $$show_xaxis$$, name: '$xaxis$'},
         yAxis: { type: 'value', name: '$yaxis$' },
