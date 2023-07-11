@@ -1,6 +1,6 @@
-
 <h1 align="center">ecpyecharts</h1>
-
+<h3 align="center">(Easy Python Echarts)</h3>
+<hr>
 <h4 align="center">
     <p>
         <b>简体中文</b> |
@@ -26,7 +26,7 @@
 
 - 使用紧凑 HTML 模板。
 ![#1](examples/imgs/tight_html_02.png)
-- 
+
 - 使用一般 HTML 模板。
 ![#2](examples/imgs/line_example_01.png)
 ![#4](examples/imgs/scatter_example_01.png)

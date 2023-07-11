@@ -1,5 +1,6 @@
 <h1 align="center">ecpyecharts</h1>
-
+<h3 align="center">(Easy Python Echarts)</h3>
+<hr>
 <h4 align="center">
     <p>
         <a href="https://github.com/Aldenhovel/ecpyecharts/blob/main/README.md">简体中文</a> |
