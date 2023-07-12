@@ -1,6 +1,5 @@
 
 <h1 align="center">ecpyecharts: <br/>Easy, Python & Echarts</h1>
-<hr>
 
 <h4 align="center">
     <p>
