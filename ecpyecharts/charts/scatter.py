@@ -13,7 +13,7 @@ r"""
         tooltip: { formatter: function (param) { var data = param.data; return 'Position: ' + data[0] + ', ' + data[1] + '<br>Value: ' +  data[2];
     }},
         legend: {orient: 'vertical', left: 'left', top: '90' },
-        grid: { left: '120', right: '10%', top: '90', bottom: '50'},
+        grid: { left: '120', right: '15%', top: '90', bottom: '50'},
         series: [$series$]
 };
     myChart.setOption(option_$id$);

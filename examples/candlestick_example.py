@@ -9,7 +9,7 @@ from ecpyecharts.charts import CandleStickTemplate
 # create a html template
 html = HTMLTemplate(title="hello", background_color="gray")
 
-# Fake data for chart 1
+# generate fake data for chart 1
 date = ['2023-7-1', '2023-7-2', '2023-7-3', '2023-7-4', '2023-7-5']
 price = [
     # [start, end, low, high]
@@ -20,13 +20,13 @@ price = [
     [34, 44, 12, 56],
 ]
 
-chart = CandleStickTemplate(title="Stock Price", subtitle="this is the subtitle", xaxis='Date', yaxis='Price')
+# add the first CandleStick chart to html template
+chart = CandleStickTemplate(title="Value", subtitle="this is the subtitle", xaxis='Date', yaxis='Value')
 chart.init_option(xdata=date, ydata=price)
 html.append_chart(chart)
 
 
-# Fake data for chart 2
-
+# generate fake data for chart 2
 def generate_dates(days=1000):
     from datetime import datetime, timedelta
     start_date = datetime(2000, 1, 1)
@@ -36,6 +36,7 @@ def generate_dates(days=1000):
         dates.append(date_str)
         start_date += timedelta(days=1)
     return dates
+
 
 def generate_data(days=1000):
     import numpy as np
@@ -49,16 +50,15 @@ def generate_data(days=1000):
     high = open_ + np.random.rand(len(open_)) * 0.5 + 1
     low = open_ - np.random.rand(len(open_)) * 0.5 - 1
     close_ = open_ + np.random.randn(len(open_)) * np.random.randn()
-
     data = np.stack([open_, close_, high, low]).T.tolist()
     return data
-
 
 
 date = generate_dates(100)
 data = generate_data(100)
 
-chart = CandleStickTemplate(title="Stock Price", subtitle="this is the subtitle", xaxis='Date', yaxis='Price')
+# add the second CandleStick chart to html template
+chart = CandleStickTemplate(title="Value", subtitle="this is the subtitle", xaxis='Date', yaxis='Value')
 chart.init_option(xdata=date, ydata=data)
 html.append_chart(chart)
 

@@ -9,7 +9,7 @@ r"""
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('chart_$id$'));
     option_$id$ = {
-        grid: { left: '120', right: '10%', top: '90', bottom: '50'},
+        grid: { left: '120', right: '15%', top: '90', bottom: '50'},
         title: {text: '$title$', subtext: '$subtitle$', left: 'left'},
         xAxis: { type: 'category', data: $xdata$, show: $$show_xaxis$$, name: '$xaxis$'},
         yAxis: { type: 'value', name: '$yaxis$' },

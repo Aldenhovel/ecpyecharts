@@ -12,7 +12,7 @@ r"""
         yAxis: { name: '$yaxis$', show: true, scale: true,},
         tooltip: { formatter: function (param) { var data = param.data; return 'Position: ' + data[0] + ', ' + data[1] + '<br>Value: ' +  data[2]; }},
         legend: {orient: 'vertical', left: 'left', top: '12%' },
-        grid: { left: '120', right: '10%', top: '90', bottom: '50'},
+        grid: { left: '120', right: '15%', top: '90', bottom: '50'},
         tooltip: {trigger: 'axis', axisPointer: { type: 'cross', label: { backgroundColor: '#6a7985' } } },
         legend: { orient: 'vertical', left: 'left', top: '90' },
         $$datazoom$$

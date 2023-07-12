@@ -9,7 +9,7 @@ r"""
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('chart_$id$'));
     option_$id$ = {
-    grid: { left: '120', right: '10%', top: '90', bottom: '50'},
+    grid: { left: '120', right: '15%', top: '90', bottom: '50'},
     tooltip: {trigger: 'axis', axisPointer: { type: 'cross', label: { backgroundColor: '#6a7985' } } },
     title: { left: 'left', text: '$title$', subtext: '$subtitle$' },
     //toolbox: { show: true, feature: { restore: { show: true }, saveAsImage: { show: true }}},
