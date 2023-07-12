@@ -49,7 +49,7 @@ class CandleStickTemplate():
         if len(xdata) > 10:
             # use data zoom mode
             show_xaxis = 'true'
-            datazoom = r"dataZoom: [{ type: 'inside', start: 0, end: 100 }, { start: 0, end: 100 ,bottom: '2%',height: 20},],"
+            datazoom = r"dataZoom: [{ type: 'inside', start: 0, end: 100 }, { start: 0, end: 100 ,bottom: '10',height: 20},],"
 
         self.wf_template = self.wf_template.replace('$id$', self.id) \
             .replace('$title$', self.title) \

@@ -46,7 +46,7 @@ class LineTemplate():
         if len(xdata) > 10:
             # use data zoom mode
             show_xaxis = 'true'
-            datazoom = r"dataZoom: [{ type: 'inside', start: 0, end: 100 }, { start: 0, end: 100 ,bottom: '2%',height: 20},],"
+            datazoom = r"dataZoom: [{ type: 'inside', start: 0, end: 100 }, { start: 0, end: 100 ,bottom: '10', height: 20},],"
 
         assert min(y_lens) == len(xdata), f"x and y data should have the same length, but got {len(xdata)} and {min(y_lens)}"
         xdata_template = str(xdata)

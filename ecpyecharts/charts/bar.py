@@ -46,7 +46,7 @@ class BarTemplate():
         if len(xdata) > 10:
             # use data zoom mode
             show_xaxis = 'true'
-            datazoom = r"dataZoom: [{ type: 'inside', start: 0, end: 100 }, { start: 0, end: 100 ,bottom: '10',height: 20}, {show: true, yAxisIndex: 0, filterMode: 'empty', width: 30, height: '150', showDataShadow: false, left: '92%' }],"
+            datazoom = r"dataZoom: [{ type: 'inside', start: 0, end: 100 }, { start: 0, end: 100, bottom: '10',height: 20}, {show: true, yAxisIndex: 0, filterMode: 'empty', width: 30, height: '150', showDataShadow: false, left: '92%' }],"
 
         assert min(y_lens) == len(xdata), f"x and y data should have the same length, but got {len(xdata)} and {min(y_lens)}"
         xdata_template = str(xdata)
