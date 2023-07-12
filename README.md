@@ -1,7 +1,7 @@
 <h1 align="center">ecpyecharts: <br/>Easy, Python & Echarts</h1>
 <h4 align="center">
     <p>
-        <a href="https://github.com/Aldenhovel/ecpyecharts/blob/main/README.md">简体中文</a> |
+        <a href="https://github.com/Aldenhovel/ecpyecharts/blob/main/README_ZH.md">简体中文</a> |
         <b>English</b> 
     <p>
 </h4>

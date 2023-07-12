@@ -4,7 +4,7 @@
 <h4 align="center">
     <p>
         <b>简体中文</b> |
-        <a href="https://github.com/Aldenhovel/ecpyecharts/blob/main/README_EN.md">English</a>
+        <a href="https://github.com/Aldenhovel/ecpyecharts/blob/main/README.md">English</a>
     <p>
 </h4>
 
