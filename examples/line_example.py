@@ -10,7 +10,7 @@ from ecpyecharts.charts import LineTemplate
 def gen_random_curve(length=500, exp_bais=0):
     RANDOM_CURVE = [1]
     for i in range(length-1):
-        RANDOM_CURVE.append(RANDOM_CURVE[-1] + random.randint(-100 + exp_bais, 100 + exp_bais)/ 100)
+        RANDOM_CURVE.append(round(RANDOM_CURVE[-1] + random.randint(-100 + exp_bais, 100 + exp_bais) / 100, 4))
     return RANDOM_CURVE
 
 
