@@ -74,7 +74,7 @@ class TightHTMLTemplate():
         self.chart_options.append(chart_option.export())
 
     def export(self, path="res.html"):
-        keywords = ['$title$', '$background_color$', '$container$']
+        keywords = ['$title$', '$background_color$', '$container$', '$chart1$', '$chart2$']
         export_template = self.wf_template
 
         container_template = \

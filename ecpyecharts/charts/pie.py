@@ -8,9 +8,9 @@ _template = \
     var myChart = echarts.init(document.getElementById('chart_$id$'));
     option_$id$ = { 
         title: { text: '$title$', subtext: '$subtitle$', left: 'left'},
-        grid: { left: '17%', right: '10%', top: '15%', bottom: '10%'},
+        grid: { left: '120', right: '10%', top: '90', bottom: '50'},
         tooltip: { trigger: 'item' },
-        legend: { orient: 'vertical', left: 'left', top: '12%' },
+        legend: { orient: 'vertical', left: 'left', top: '90' },
         labelLine: { show: false },
         series: [$series$]
     };

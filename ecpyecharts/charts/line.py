@@ -9,13 +9,13 @@ r"""
 <script type="text/javascript">
     var myChart = echarts.init(document.getElementById('chart_$id$'));
     option_$id$ = {
-    grid: { left: '17%', right: '10%', top: '15%', bottom: '10%'},
+    grid: { left: '120', right: '10%', top: '90', bottom: '50'},
     tooltip: {trigger: 'axis', axisPointer: { type: 'cross', label: { backgroundColor: '#6a7985' } } },
     title: { left: 'left', text: '$title$', subtext: '$subtitle$' },
     //toolbox: { show: true, feature: { restore: { show: true }, saveAsImage: { show: true }}},
     xAxis: { type: 'category', data: $xdata$, boundaryGap: false, show: $$show_xaxis$$, name: '$xaxis$'},
     yAxis: { type: 'value', boundaryGap: [0, '50%'], name: '$yaxis$' },
-    legend: { orient: 'vertical', left: 'left', top: '12%' },
+    legend: { orient: 'vertical', left: 'left', top: '90' },
     $$datazoom$$
     series: [$series$],
     
@@ -45,8 +45,8 @@ class LineTemplate():
         datazoom = ''
         if len(xdata) > 10:
             # use data zoom mode
-            show_xaxis = 'false'
-            datazoom = r"dataZoom: [{ start: 0, end: 100 }],"
+            show_xaxis = 'true'
+            datazoom = r"dataZoom: [{ type: 'inside', start: 0, end: 100 }, { start: 0, end: 100 ,bottom: '2%',height: 20},],"
 
         assert min(y_lens) == len(xdata), f"x and y data should have the same length, but got {len(xdata)} and {min(y_lens)}"
         xdata_template = str(xdata)
