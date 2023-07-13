@@ -18,7 +18,9 @@ r"""
     </style>
 </head>
 <body style="background-color: $background_color$">
+    <!--ANCHOR_ON-->
     $charts$
+    <!--ANCHOR_OFF-->
 </body>
 </html>
 """

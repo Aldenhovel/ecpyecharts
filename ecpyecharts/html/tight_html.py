@@ -37,7 +37,9 @@ r"""
     </style>
 </head>
 <body>
+    <!--ANCHOR_ON-->
     $container$
+    <!--ANCHOR_OFF-->
 </body>
 </html>
 """
