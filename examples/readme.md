@@ -5,7 +5,7 @@ Selecting an HTML template is the premise of drawing. Different HTML templates m
 
 ### 1 紧凑模板 Tight Template
 *src:*  `tight_html_example.py`
-<img src="imgs/tight_html_example.gif" alt="tight_html_example" style="zoom: 25%;" />
+<img src="imgs/tight_html_example.gif" alt="tight_html_example" width="500" />
 
 ### 2 标准模板 Standard Template
 其他示例展示均为标准模板。
@@ -18,7 +18,7 @@ Other examples shown are standard templates.
 这是一个**实验性功能**，并不推荐使用，因为它可以将类型不同的模板合并到一起产生一个综合的模板，以实现在同一个HTML页面中显示不同尺寸图表。
 
 This is an experimental feature and is not recommended, because it can combine different types of templates together to generate a comprehensive template to display charts of different sizes in the same HTML page.
-<img src="imgs/template_extend.png" alt="template-extend" style="zoom:25%;" />
+<img src="imgs/template_extend.png" alt="template-extend" width="500" />
 
 
 ## 图 Charts 
@@ -30,31 +30,31 @@ All results have corresponding HTML files under `tmp/`, please take that as the 
 ### 1 柱状图 Bar
 *src:* `bar_example.py` .
 
-![barexample01](imgs/bar_example_01.png)
-![barexample02](imgs/bar_example_02.png)
+<img src="imgs/bar_example_01.png" alt="barexample01" width="500" />
+<img src="imgs/bar_example_02.png" alt="barexample02" style="zoom: 25%;" />
 
 ### 2 折线图 Line
 *src:* `line_example.py` .
 
-![lineexample01](imgs/line_example_01.png)
-![lineexample02](imgs/line_example_02.png)
+<img src="imgs/line_example_01.png" alt="lineexample01" width="500" />
+<img src="imgs/line_example_02.png" alt="lineexample02" width="500" />
 
 
 ### 3 饼图 Pie
 *src:* `pie_example.py` .
 
-![pieexample01](imgs/pie_example_01.png)
-![pieexample02](imgs/pie_example_02.png)
+<img src="imgs/pie_example_01.png" alt="pieexample01" width="500" />
+<img src="imgs/pie_example_02.png" alt="pieexample02" width="500" />
 
 ### 4 散点图 Scatter
 *src:* `scatter_example.py` .
 
-![scatterexample01](imgs/scatter_example_01.png)
-![scatterexample02](imgs/scatter_example_02.png)
+<img src="imgs/scatter_example_01.png" alt="scatterexample01" width="500" />
+<img src="imgs/scatter_example_02.png" alt="scatterexample02" width="500" />
 
 
 ### 5 蜡烛图（K线图） CandleStick
 *src:* `candlestick_example.py` .
 
-![candlestick01](imgs/candlestick_example_01.png)
-![candlestick02](imgs/candlestick_example_02.png)
+<img src="imgs/candlestick_example_01.png" alt="candlestick01" width="500" />
+<img src="imgs/candlestick_example_02.png" alt="candlestick02" width="500" />
