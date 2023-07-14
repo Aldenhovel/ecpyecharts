@@ -33,14 +33,12 @@ All results have corresponding HTML files under `tmp/`, please take that as the 
 *src:* `bar_example.py` .
 
 <img src="imgs/bar_example_01.png" alt="barexample01" width="500" />
-
 <img src="imgs/bar_example_02.png" alt="barexample02" width="500" />
 
 ### 2 折线图 Line
 *src:* `line_example.py` .
 
 <img src="imgs/line_example_01.png" alt="lineexample01" width="500" />
-
 <img src="imgs/line_example_02.png" alt="lineexample02" width="500" />
 
 
@@ -48,14 +46,12 @@ All results have corresponding HTML files under `tmp/`, please take that as the 
 *src:* `pie_example.py` .
 
 <img src="imgs/pie_example_01.png" alt="pieexample01" width="500" />
-
 <img src="imgs/pie_example_02.png" alt="pieexample02" width="500" />
 
 ### 4 散点图 Scatter
 *src:* `scatter_example.py` .
 
 <img src="imgs/scatter_example_01.png" alt="scatterexample01" width="500" />
-
 <img src="imgs/scatter_example_02.png" alt="scatterexample02" width="500" />
 
 
@@ -63,5 +59,4 @@ All results have corresponding HTML files under `tmp/`, please take that as the 
 *src:* `candlestick_example.py` .
 
 <img src="imgs/candlestick_example_01.png" alt="candlestick01" width="500" />
-
 <img src="imgs/candlestick_example_02.png" alt="candlestick02" width="500" />
