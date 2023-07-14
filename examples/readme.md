@@ -5,6 +5,7 @@ Selecting an HTML template is the premise of drawing. Different HTML templates m
 
 ### 1 紧凑模板 Tight Template
 *src:*  `tight_html_example.py`
+
 <img src="imgs/tight_html_example.gif" alt="tight_html_example" width="500" />
 
 ### 2 标准模板 Standard Template
@@ -18,6 +19,7 @@ Other examples shown are standard templates.
 这是一个**实验性功能**，并不推荐使用，因为它可以将类型不同的模板合并到一起产生一个综合的模板，以实现在同一个HTML页面中显示不同尺寸图表。
 
 This is an experimental feature and is not recommended, because it can combine different types of templates together to generate a comprehensive template to display charts of different sizes in the same HTML page.
+
 <img src="imgs/template_extend.png" alt="template-extend" width="500" />
 
 
@@ -31,12 +33,14 @@ All results have corresponding HTML files under `tmp/`, please take that as the 
 *src:* `bar_example.py` .
 
 <img src="imgs/bar_example_01.png" alt="barexample01" width="500" />
-<img src="imgs/bar_example_02.png" alt="barexample02" style="zoom: 25%;" />
+
+<img src="imgs/bar_example_02.png" alt="barexample02" width="500" />
 
 ### 2 折线图 Line
 *src:* `line_example.py` .
 
 <img src="imgs/line_example_01.png" alt="lineexample01" width="500" />
+
 <img src="imgs/line_example_02.png" alt="lineexample02" width="500" />
 
 
@@ -44,12 +48,14 @@ All results have corresponding HTML files under `tmp/`, please take that as the 
 *src:* `pie_example.py` .
 
 <img src="imgs/pie_example_01.png" alt="pieexample01" width="500" />
+
 <img src="imgs/pie_example_02.png" alt="pieexample02" width="500" />
 
 ### 4 散点图 Scatter
 *src:* `scatter_example.py` .
 
 <img src="imgs/scatter_example_01.png" alt="scatterexample01" width="500" />
+
 <img src="imgs/scatter_example_02.png" alt="scatterexample02" width="500" />
 
 
@@ -57,4 +63,5 @@ All results have corresponding HTML files under `tmp/`, please take that as the 
 *src:* `candlestick_example.py` .
 
 <img src="imgs/candlestick_example_01.png" alt="candlestick01" width="500" />
+
 <img src="imgs/candlestick_example_02.png" alt="candlestick02" width="500" />
