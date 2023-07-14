@@ -5,7 +5,7 @@ Selecting an HTML template is the premise of drawing. Different HTML templates m
 
 ### 1 紧凑模板 Tight Template
 *src:*  `tight_html_example.py`
-![tight_html_example](imgs/tight_html_example.gif)
+<img src="imgs/tight_html_example.gif" alt="tight_html_example" style="zoom: 25%;" />
 
 ### 2 标准模板 Standard Template
 其他示例展示均为标准模板。
@@ -18,7 +18,7 @@ Other examples shown are standard templates.
 这是一个**实验性功能**，并不推荐使用，因为它可以将类型不同的模板合并到一起产生一个综合的模板，以实现在同一个HTML页面中显示不同尺寸图表。
 
 This is an experimental feature and is not recommended, because it can combine different types of templates together to generate a comprehensive template to display charts of different sizes in the same HTML page.
-![template-extend](imgs/template_extend.png)
+<img src="imgs/template_extend.png" alt="template-extend" style="zoom:25%;" />
 
 
 ## 图 Charts 
