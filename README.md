@@ -73,4 +73,5 @@ html.export('../tmp/bar_example.html')
 
 Templates will be placed in `examples/`. If you want to view the running results, please view the corresponding HTML files in `tmp/`.
 
-**More templates will be updated later**
+## notebook tutorials
+We made some jupyter notebook tutorials to show interesting functions and related features of `ecpyecharts`, please check them under `notebooks/`.
