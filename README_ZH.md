@@ -79,5 +79,9 @@ html.export('../tmp/bar_example.html')
 
 所有模板的使用示例代码会放在 `examples/` 中，如果想查看运行结果，请在 `tmp/` 中查看对应的 HTML 文件。
 
-**更多模板会后续更新**
+## notebook 示例
+
+我们做了一些 jupyter notebook 的教程来展示 `ecpyecharts` 的有趣功能和相关特性，请在 `notebooks/` 下查看它们。
+
+
 
