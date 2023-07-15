@@ -55,7 +55,6 @@ class BarTemplate():
         colorset = [*Color.C_11_S_Chinese_Style.items()]
         for ix, (name, array) in enumerate(ydata.items()):
             color = colorset[ix % len(colorset)][1]
-            print(color)
             series_template = series_template + '{' + f"name: '{name}', type: 'bar', data: {str(array)}, color: 'rgb{color}'" + '},'
 
         self.wf_template = self.wf_template.replace('$id$', self.id)\

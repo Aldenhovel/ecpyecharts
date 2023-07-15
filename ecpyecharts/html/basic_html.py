@@ -83,6 +83,17 @@ class HTMLTemplate():
         with open(path, 'w', encoding='utf-8') as f:
             f.write(export_template)
 
+    def export_notebook(self):
+        self.wf_template = self.wf_template.replace('$echarts_js_template$', echarts54_js_template)
+        keywords = ['$title$', '$background_color$', '$container$', '$container$', '$chart1$', '$chart2$']
+        export_template = self.wf_template
+        for kw in keywords:
+            export_template = export_template.replace(kw, '')
+
+        from IPython.display import display, HTML
+        display(HTML(export_template))
+
+
     def extend(self, extend_html_template):
         extend_body = RE.Find(extend_html_template.wf_template, r"<!--ANCHOR_BODY_ON-->(.+)<!--ANCHOR_BODY_OFF-->")[0]\
             .replace('<!--ANCHOR_BODY_EXTEND-->', '')

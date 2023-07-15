@@ -6,3 +6,6 @@
 
 # virtual environment
 venv/
+
+# notebook checkpoints
+.ipynb_checkpoints/
