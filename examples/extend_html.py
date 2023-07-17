@@ -3,12 +3,13 @@ import pathlib
 sys.path.append(str(pathlib.Path('.').absolute().parent))
 
 import random
-from ecpyecharts.html import HTMLTemplate, TightHTMLTemplate
+from ecpyecharts.html import HTMLTemplate, TightHTMLTemplate, SuperTightHTMLTemplate
 from ecpyecharts.charts import *
 
 # create 2 html template, here `html_1` is standard template and `html_2` is tight template
 html_1 = HTMLTemplate(title="hello", background_color="gray", chart_height='300px')
 html_2 = TightHTMLTemplate(title="hello", background_color="gray", chart_height='300px')
+html_3 = SuperTightHTMLTemplate(title="hello", background_color='gray', chart_height='300px')
 
 
 # append bar chart into `html_1`

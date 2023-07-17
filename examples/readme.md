@@ -3,15 +3,30 @@
 
 Selecting an HTML template is the premise of drawing. Different HTML templates mean differences in the order and position of the charts. In order to adapt to different display environments, these templates are provided here for selection:
 
-### 1 紧凑模板 Tight Template
+
+### 1 标准模板 Standard Template
+*src:* `bar_example.py` .
+
+<img src="imgs/bar_example_02.png" alt="barexample01" width="500" />
+
+
+### 2 紧凑模板 Tight Template
 *src:*  `tight_html_example.py`
 
-<img src="imgs/tight_html_example.gif" alt="tight_html_example" width="500" />
+<img src="imgs/tight_html_example.png" alt="tight_html_example" width="500" />
 
-### 2 标准模板 Standard Template
-其他示例展示均为标准模板。
 
-Other examples shown are standard templates.
+### 3 非常紧凑模板 Very-Tight Template
+*src:* `verytight_html_example.py`
+
+<img src="imgs/verytight_html_example.png" alt="verytight_html_example" width="500" />
+
+### 4 超级紧凑模板 Super-Tight Template
+*src:* `supertight_html_example.py`
+
+<img src="imgs/supertight_html_example.png" alt="supertight_html_example" width="500" />
+
+
 
 ### 3 模板合并 Template Extend
 *src:*  `extend_html.py` .

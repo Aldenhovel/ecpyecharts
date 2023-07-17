@@ -17,9 +17,39 @@ body {
     padding: 0;
     background-color: $background_color$
 }
-.box {
+.box-single {
+    margin: 5px;
+    flex: 0 0 calc(100% - 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $divHeight$;
+    border-radius: 10px;
+    background-color: white;
+}
+.box-tight {
     margin: 5px;
     flex: 0 0 calc(50% - 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $divHeight$;
+    border-radius: 10px;
+    background-color: white;
+}
+.box-verytight {
+    margin: 5px;
+    flex: 0 0 calc(33.34% - 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $divHeight$;
+    border-radius: 10px;
+    background-color: white;
+}
+.box-supertight {
+    margin: 5px;
+    flex: 0 0 calc(25% - 10px);
     display: flex;
     justify-content: center;
     align-items: center;

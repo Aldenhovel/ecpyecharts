@@ -3,7 +3,7 @@ import pathlib
 sys.path.append(str(pathlib.Path('.').absolute().parent))
 
 import random
-from ecpyecharts.html import TightHTMLTemplate
+from ecpyecharts.html import SuperTightHTMLTemplate
 from ecpyecharts.charts import *
 
 
@@ -16,7 +16,7 @@ def gen_random_curve(length=500, exp_bais=0):
 
 
 
-html = TightHTMLTemplate(title="hello", background_color="gray", chart_height='300px')
+html = SuperTightHTMLTemplate(title="hello", background_color="gray", chart_height='300px')
 
 
 chart = LineTemplate(title="Citys", subtitle="this is the subtitle of A", xaxis='Metric', yaxis='Score')
@@ -27,7 +27,13 @@ chart.init_option(xdata=[str(i) for i in range(200)],
                       })
 html.append_chart(chart)
 
-
+chart = LineTemplate(title="Citys", subtitle="this is the subtitle of A", xaxis='Metric', yaxis='Score')
+chart.init_option(xdata=[str(i) for i in range(200)],
+               ydata={'BJ Score': gen_random_curve(200, exp_bais=10),
+                      'SH Score': gen_random_curve(200, exp_bais=5),
+                      'HK Score': gen_random_curve(200, exp_bais=-10)
+                      })
+html.append_chart(chart)
 
 data_group_name = ['BJ']
 data_group = [
@@ -88,4 +94,4 @@ chart.init_option(xdata=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
 html.append_chart(chart)
 
 # export the html template to a file
-html.export('../tmp/tight_html_example.html')
+html.export('../tmp/supertight_html_example.html')

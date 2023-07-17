@@ -6,20 +6,18 @@ from utils import RegularExpress as RE
 _template = \
 r"""
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
     <title>$title$</title>
     $echarts_js_template$
     $css_template$
-    
 </head>
 <body>
     <!--ANCHOR_BODY_ON-->
     $container$
     <!--ANCHOR_BODY_EXTEND-->
     <!--ANCHOR_BODY_OFF-->
-
 </body>
 </html>
 """
@@ -27,13 +25,11 @@ r"""
 _supported_background_color = ['white', 'black', 'lightgray', 'gray']
 
 
-class HTMLTemplate():
+class SuperTightHTMLTemplate():
 
 
-    def __init__(self, title="title", background_color="lightgray", chart_height='500px'):
-        # 原始的 template
+    def __init__(self, title="title", background_color="lightgray", chart_height='300px'):
         self.org_template = _template
-        # 正在工作中处理的 template
         self.wf_template = _template
         self.title = title
         self.chart_count = 0
@@ -46,10 +42,12 @@ class HTMLTemplate():
         self.init_template()
 
     def init_template(self):
-        self.wf_template = self.org_template\
-            .replace('$title$', self.title) \
+
+        self.wf_template = self.org_template \
             .replace('$css_template$', css_template)\
-            .replace('$background_color$', self.background_color)
+            .replace('$title$', self.title)\
+            .replace('$background_color$', self.background_color)\
+            .replace('divHeight', self.chart_height)
 
     def append_chart(self, chart_option):
         self.chart_count += 1
@@ -58,30 +56,53 @@ class HTMLTemplate():
 
     def build(self):
         self.init_template()
-        self.wf_template = self.wf_template.replace('$divHeight$', self.chart_height).replace('$divWidth$', '90%')
-        self.wf_template = self.wf_template.replace('$echarts_js_template$', echarts54_js_template)
+        container_template = \
+            r"""
+            <div class="container" style="margin: 0 auto; padding: 0;">
+                $chart1$
+                $chart2$
+                $chart3$
+                $chart4$
+            </div>
+            $container$
+            """
         for i, chart_option in enumerate(self.chart_options):
-            container_template = \
-                r"""
-                <div class="container" style="margin: 0 auto; padding: 0;">
-                <div class="box-single">
-                    $chart$
-                </div>
-                </div>
-                $container$
-                """
             chart_option = chart_option.replace('$divWidth$', '100%').replace('$divHeight$', self.chart_height)
-            container_template = container_template.replace('$chart$', chart_option)
-            self.wf_template = self.wf_template.replace('$container$', f"{container_template}\n$container$")
+            if i % 4 == 0:  # chart1
+                container_template = \
+                    r"""
+                    <div class="container" style="margin: 0 auto;">
+                        $chart1$
+                        $chart2$
+                        $chart3$
+                        $chart4$
+                    </div>
+                    $container$
+                    """
+                container_template = container_template.replace('$chart1$',
+                                                                '<div class="box-supertight">\n' + chart_option + '\n</div>')
+
+            elif i % 4 == 1:
+                container_template = container_template.replace('$chart2$',
+                                                                '<div class="box-supertight">\n' + chart_option + '\n</div>')
+            elif i % 4 == 2:
+                container_template = container_template.replace('$chart3$',
+                                                                '<div class="box-supertight">\n' + chart_option + '\n</div>')
+            else:
+                container_template = container_template.replace('$chart4$',
+                                                                '<div class="box-supertight">\n' + chart_option + '\n</div>')
+                self.wf_template = self.wf_template.replace('$container$', container_template)
+
+        if self.chart_count % 4 != 0:
+            self.wf_template = self.wf_template.replace('$container$', container_template)
 
 
     def export(self, path="res.html"):
+        keywords = ['$title$', '$background_color$', '$charts$', '$container$', '$chart1$', '$chart2$', '$chart3$', '$chart4$']
         self.wf_template = self.wf_template.replace('$echarts_js_template$', echarts54_js_template)
-        keywords = ['$title$', '$background_color$', '$container$', '$container$', '$chart1$', '$chart2$', '$chart3$', '$chart4$']
         export_template = self.wf_template
         for kw in keywords:
             export_template = export_template.replace(kw, '')
-
         with open(path, 'w', encoding='utf-8') as f:
             f.write(export_template)
 
@@ -95,13 +116,14 @@ class HTMLTemplate():
         from IPython.display import display, HTML
         display(HTML(export_template))
 
-
     def extend(self, extend_html_template):
-        extend_body = RE.Find(extend_html_template.wf_template, r"<!--ANCHOR_BODY_ON-->(.+)<!--ANCHOR_BODY_OFF-->")[0]\
+        extend_body = RE.Find(extend_html_template.wf_template, r"<!--ANCHOR_BODY_ON-->(.+)<!--ANCHOR_BODY_OFF-->")[0] \
             .replace('<!--ANCHOR_BODY_EXTEND-->', '')
         self.wf_template = self.wf_template.replace('$container$', '')
         self.wf_template = self.wf_template.replace('<!--ANCHOR_BODY_EXTEND-->', extend_body + '\n<!--ANCHOR_BODY_EXTEND-->')
         return self
+
+
 
 
 if __name__ == "__main__":
