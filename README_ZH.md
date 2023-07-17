@@ -22,14 +22,13 @@
 
 
 
-## 展示
+![#1](examples/imgs/demo.gif)
 
-- 使用紧凑 HTML 模板。
-![#1](examples/imgs/tight_html_example.gif)
-
-- 使用一般 HTML 模板。
-![#2](examples/imgs/line_example_01.png)
-![#4](examples/imgs/scatter_example_01.png)
+- 支持生成多种不同样式的HTML模板。
+- 支持多种设计好的图表模板。
+- 只需编写非常简单的代码。
+- 支持在 `jupyter notebook / lab` 中使用。
+- 支持使用 GUI 构建可视化报表。（在未来）
 
 ## 如何使用 ecpyecharts
 

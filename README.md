@@ -18,60 +18,55 @@ We have discovered that data visualization is actually a discipline that combine
 
 Our development goal for ecpyecharts is to simplify the design burden for developers by subtracting from echarts and pyecharts, providing more concise, higher integration, and visually appealing customized visualization report templates.
 
-## Examples
 
-- Using tight HTML template.
-![#1](examples/imgs/tight_html_example.gif)
-- Using basic HTML template.
-![#2](examples/imgs/line_example_01.png)
-![#4](examples/imgs/scatter_example_01.png)
+![#1](examples/imgs/demo.gif)
+
+- Supports generating HTML templates with different styles.
+- Support a variety of well-designed chart templates.
+- Wrote very simple code.
+- Support for use in `jupyter notebook/lab`.
+- Supports the use of GUI to build visual reports. *(in the future)*
+
 
 ## How to use ecpyecharts
 
 1. Download or clone this repository.
-```bash
-git clone git@github.com:Aldenhovel/ecpyecharts.git && cd ecpyecharts
-```
+    ```bash
+    git clone git@github.com:Aldenhovel/ecpyecharts.git && cd ecpyecharts
+    ```
 
 2. Find the desired template in `examples/`.
-```bash
-cd examples
-```
 
-3. Edit the code file corresponding to the template, and replace the data in the sample code with your own data.
-```bash
-cp xxx_example.py my_test.py
-vi my_test.py
-```
 
-4. Please refer to this code snippet, which briefly introduces the most direct way to use ecpyecharts.
 
-```python
-import random
-from ecpyecharts.html import HTMLTemplate
-from ecpyecharts.charts import BarTemplate
+3. Please refer to this code snippet, which briefly introduces the most direct way to use ecpyecharts.
 
-# create a html template
-html = HTMLTemplate(title="hello", background_color="gray")
+    ```python
+    import random
+    from ecpyecharts.html import HTMLTemplate
+    from ecpyecharts.charts import BarTemplate
+    
+    # create a html template
+    html = HTMLTemplate(title="hello", background_color="gray")
+    
+    # create a bar chart template 
+    # init it with data
+    chart = BarTemplate(title="Citys", subtitle="this is the subtitle of A", xaxis='Metric', yaxis='Score')
+    chart.init_option(xdata=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
+                   ydata={'BJ Score': [random.randint(0, 100) for _ in range(11)],
+                          'SH Score': [random.randint(0, 100) for _ in range(11)],
+                          'HK Score': [random.randint(0, 100) for _ in range(11)]
+                          })
+    
+    # Once the chart is initialized, 
+    # we can append it into the html template
+    html.append_chart(chart)
+    
+    # export the html template to a file
+    html.export('../tmp/bar_example.html')
+    ```
 
-# create a bar chart template 
-# init it with data
-chart = BarTemplate(title="Citys", subtitle="this is the subtitle of A", xaxis='Metric', yaxis='Score')
-chart.init_option(xdata=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
-               ydata={'BJ Score': [random.randint(0, 100) for _ in range(11)],
-                      'SH Score': [random.randint(0, 100) for _ in range(11)],
-                      'HK Score': [random.randint(0, 100) for _ in range(11)]
-                      })
-
-# Once the chart is initialized, 
-# we can append it into the html template
-html.append_chart(chart)
-
-# export the html template to a file
-html.export('../tmp/bar_example.html')
-```
-
-Templates will be placed in `examples/`. If you want to view the running results, please view the corresponding HTML files in `tmp/`.
+4. Templates will be placed in `examples/`. If you want to view the running results, please view the corresponding HTML files in `tmp/`.
 
 ## notebook tutorials
 We made some jupyter notebook tutorials to show interesting functions and related features of `ecpyecharts`, please check them under `notebooks/`.

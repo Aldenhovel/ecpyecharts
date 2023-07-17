@@ -76,11 +76,11 @@ class TightHTMLTemplate():
                     $container$
                     """
                 container_template = container_template.replace('$chart1$',
-                                                                '<div class="box">' + chart_option + '</div>')
+                                                                '<div class="box-tight">' + chart_option + '</div>')
 
             else:
                 container_template = container_template.replace('$chart2$',
-                                                                '<div class="box">\n' + chart_option + '\n</div>')
+                                                                '<div class="box-tight">\n' + chart_option + '\n</div>')
                 self.wf_template = self.wf_template.replace('$container$', container_template)
 
         if self.chart_count % 2 == 1:
@@ -88,7 +88,7 @@ class TightHTMLTemplate():
 
 
     def export(self, path="res.html"):
-        keywords = ['$title$', '$background_color$', '$charts$', '$container$', '$chart1$', '$chart2$']
+        keywords = ['$title$', '$background_color$', '$charts$', '$container$', '$chart1$', '$chart2$', '$chart3$', '$chart4$']
         self.wf_template = self.wf_template.replace('$echarts_js_template$', echarts54_js_template)
         export_template = self.wf_template
         for kw in keywords:
@@ -98,7 +98,7 @@ class TightHTMLTemplate():
 
     def export_notebook(self):
         self.wf_template = self.wf_template.replace('$echarts_js_template$', echarts54_js_template)
-        keywords = ['$title$', '$background_color$', '$container$', '$container$', '$chart1$', '$chart2$']
+        keywords = ['$title$', '$background_color$', '$container$', '$container$', '$chart1$', '$chart2$', '$chart3$', '$chart4$']
         export_template = self.wf_template
         for kw in keywords:
             export_template = export_template.replace(kw, '')
