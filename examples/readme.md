@@ -13,7 +13,7 @@ Selecting an HTML template is the premise of drawing. Different HTML templates m
 ### 2 紧凑模板 Tight Template
 *src:*  `tight_html_example.py`
 
-<img src="imgs/tight_html_example.gif" alt="tight_html_example" width="500" />
+<img src="imgs/tight_html_example.png" alt="tight_html_example" width="500" />
 
 
 ### 3 非常紧凑模板 Very-Tight Template
