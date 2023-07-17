@@ -28,55 +28,46 @@
 - 支持多种设计好的图表模板。
 - 只需编写非常简单的代码。
 - 支持在 `jupyter notebook / lab` 中使用。
-- 支持使用 GUI 构建可视化报表。（在未来）
+- 支持使用 GUI 构建可视化报表。*（在未来）*
 
 ## 如何使用 ecpyecharts
 
 1. 下载或克隆此仓库。
-```bash
-git clone git@github.com:Aldenhovel/ecpyecharts.git && cd ecpyecharts
-```
+    ```bash
+    git clone git@github.com:Aldenhovel/ecpyecharts.git && cd ecpyecharts
+    ```
 
 2. 在 `examples/` 中找到想要的模板。
-```bash
-cd examples
-```
 
-3. 编辑模板对应的代码文件，使用自己的数据代替示例代码中的数据。
-```bash
-cp xxx_example.py my_test.py
-vi my_test.py
-......
-```
 
-4. 请参考这段代码片段，它简单介绍了 ecpyecharts 的最直接使用方法：
+3. 请参考这段代码片段，它简单介绍了 ecpyecharts 的最直接使用方法：
+    
+    ```python
+    import random
+    from ecpyecharts.html import HTMLTemplate
+    from ecpyecharts.charts import BarTemplate
+    
+    # create a html template
+    html = HTMLTemplate(title="hello", background_color="gray")
+    
+    # create a bar chart template 
+    # init it with data
+    chart = BarTemplate(title="Citys", subtitle="this is the subtitle of A", xaxis='Metric', yaxis='Score')
+    chart.init_option(xdata=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
+                   ydata={'BJ Score': [random.randint(0, 100) for _ in range(11)],
+                          'SH Score': [random.randint(0, 100) for _ in range(11)],
+                          'HK Score': [random.randint(0, 100) for _ in range(11)]
+                          })
+    
+    # Once the chart is initialized, 
+    # we can append it into the html template
+    html.append_chart(chart)
+    
+    # export the html template to a file
+    html.export('../tmp/bar_example.html')
+    ```
 
-```python
-import random
-from ecpyecharts.html import HTMLTemplate
-from ecpyecharts.charts import BarTemplate
-
-# create a html template
-html = HTMLTemplate(title="hello", background_color="gray")
-
-# create a bar chart template 
-# init it with data
-chart = BarTemplate(title="Citys", subtitle="this is the subtitle of A", xaxis='Metric', yaxis='Score')
-chart.init_option(xdata=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
-               ydata={'BJ Score': [random.randint(0, 100) for _ in range(11)],
-                      'SH Score': [random.randint(0, 100) for _ in range(11)],
-                      'HK Score': [random.randint(0, 100) for _ in range(11)]
-                      })
-
-# Once the chart is initialized, 
-# we can append it into the html template
-html.append_chart(chart)
-
-# export the html template to a file
-html.export('../tmp/bar_example.html')
-```
-
-所有模板的使用示例代码会放在 `examples/` 中，如果想查看运行结果，请在 `tmp/` 中查看对应的 HTML 文件。
+4. 所有模板的使用示例代码会放在 `examples/` 中，如果想查看运行结果，请在 `tmp/` 中查看对应的 HTML 文件。
 
 ## notebook 示例
 
