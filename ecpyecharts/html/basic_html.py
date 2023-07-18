@@ -56,6 +56,9 @@ class HTMLTemplate():
         self.chart_options.append(chart_option.export())
         self.build()
 
+    def new_row(self):
+        pass
+
     def build(self):
         self.init_template()
         self.wf_template = self.wf_template.replace('$divHeight$', self.chart_height).replace('$divWidth$', '90%')

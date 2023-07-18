@@ -93,5 +93,6 @@ chart.init_option(xdata=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
                       })
 html.append_chart(chart)
 
+
 # export the html template to a file
 html.export('../tmp/supertight_html_example.html')

@@ -27,8 +27,17 @@ Selecting an HTML template is the premise of drawing. Different HTML templates m
 <img src="imgs/supertight_html_example.png" alt="supertight_html_example" width="500" />
 
 
+### 3 新增行 Add New Row
+*src:* `new_row_example.py`
 
-### 3 模板合并 Template Extend
+这个功能可以规定下一图表从下一行开始显示，以便于分类。
+
+This function can specify that the next chart should be displayed from the next row, so as to facilitate classification.
+
+<img src="imgs/new_row_example.png" alt="new-row-example" width="500" />
+
+
+### 4 模板合并 Template Extend
 *src:*  `extend_html.py` .
 
 这是一个**实验性功能**，并不推荐使用，因为它可以将类型不同的模板合并到一起产生一个综合的模板，以实现在同一个HTML页面中显示不同尺寸图表。
@@ -36,6 +45,8 @@ Selecting an HTML template is the premise of drawing. Different HTML templates m
 This is an experimental feature and is not recommended, because it can combine different types of templates together to generate a comprehensive template to display charts of different sizes in the same HTML page.
 
 <img src="imgs/template_extend.png" alt="template-extend" width="500" />
+
+
 
 
 ## 图 Charts 

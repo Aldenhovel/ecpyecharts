@@ -54,6 +54,10 @@ class VeryTightHTMLTemplate():
         self.chart_options.append(chart_option.export())
         self.build()
 
+    def new_row(self):
+        self.chart_options.append("$NL$")
+        self.build()
+
     def build(self):
         self.init_template()
         container_template = \
@@ -65,30 +69,41 @@ class VeryTightHTMLTemplate():
             </div>
             $container$
             """
-        for i, chart_option in enumerate(self.chart_options):
-            chart_option = chart_option.replace('$divWidth$', '100%').replace('$divHeight$', self.chart_height)
-            if i % 3 == 0:  # chart1
-                container_template = \
-                    r"""
-                    <div class="container" style="margin: 0 auto;">
-                        $chart1$
-                        $chart2$
-                        $chart3$
-                    </div>
-                    $container$
-                    """
-                container_template = container_template.replace('$chart1$',
-                                                                '<div class="box-verytight">\n' + chart_option + '\n</div>')
-
-            elif i % 3 == 1:
-                container_template = container_template.replace('$chart2$',
-                                                                '<div class="box-verytight">\n' + chart_option + '\n</div>')
+        rowix = 0
+        for chart_option in self.chart_options:
+            if chart_option == "$NL$":
+                if rowix == 0:
+                    continue
+                else:
+                    self.wf_template = self.wf_template.replace('$container$', container_template)
+                    rowix = 0
             else:
-                container_template = container_template.replace('$chart3$',
-                                                                '<div class="box-verytight">\n' + chart_option + '\n</div>')
-                self.wf_template = self.wf_template.replace('$container$', container_template)
+                chart_option = chart_option.replace('$divWidth$', '100%').replace('$divHeight$', self.chart_height)
+                if rowix == 0:  # chart1
+                    rowix = 1
+                    container_template = \
+                        r"""
+                        <div class="container" style="margin: 0 auto;">
+                            $chart1$
+                            $chart2$
+                            $chart3$
+                        </div>
+                        $container$
+                        """
+                    container_template = container_template.replace('$chart1$',
+                                                                    '<div class="box-verytight">\n' + chart_option + '\n</div>')
 
-        if self.chart_count % 3 != 0:
+                elif rowix == 1:
+                    rowix = 2
+                    container_template = container_template.replace('$chart2$',
+                                                                    '<div class="box-verytight">\n' + chart_option + '\n</div>')
+                else:
+                    rowix = 0
+                    container_template = container_template.replace('$chart3$',
+                                                                    '<div class="box-verytight">\n' + chart_option + '\n</div>')
+                    self.wf_template = self.wf_template.replace('$container$', container_template)
+
+        if rowix != 0:
             self.wf_template = self.wf_template.replace('$container$', container_template)
 
 
