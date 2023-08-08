@@ -51,31 +51,47 @@ class HTMLTemplate():
             .replace('$css_template$', css_template)\
             .replace('$background_color$', self.background_color)
 
+        if self.background_color in ['white', 'lightgray']:
+            self.wf_template = self.wf_template.replace('$txt_color$', 'black')
+        else:
+            self.wf_template = self.wf_template.replace('$txt_color$', 'white')
+
     def append_chart(self, chart_option):
         self.chart_count += 1
         self.chart_options.append(chart_option.export())
         self.build()
 
-    def new_row(self):
-        pass
+    def new_row(self, txt=''):
+        self.chart_options.append(f"$NL${txt}")
+        self.build()
+
 
     def build(self):
         self.init_template()
         self.wf_template = self.wf_template.replace('$divHeight$', self.chart_height).replace('$divWidth$', '90%')
         self.wf_template = self.wf_template.replace('$echarts_js_template$', echarts54_js_template)
         for i, chart_option in enumerate(self.chart_options):
-            container_template = \
-                r"""
+            if chart_option[:4] == "$NL$":
+                container_template = f"""
                 <div class="container" style="margin: 0 auto; padding: 0;">
-                <div class="box-single">
-                    $chart$
-                </div>
+                    <div class="row-title">{chart_option[4:]}</div>
                 </div>
                 $container$
                 """
-            chart_option = chart_option.replace('$divWidth$', '100%').replace('$divHeight$', self.chart_height)
-            container_template = container_template.replace('$chart$', chart_option)
-            self.wf_template = self.wf_template.replace('$container$', f"{container_template}\n$container$")
+                self.wf_template = self.wf_template.replace('$container$', container_template)
+            else:
+                container_template = \
+                    r"""
+                    <div class="container" style="margin: 0 auto; padding: 0;">
+                    <div class="box-single">
+                        $chart$
+                    </div>
+                    </div>
+                    """
+                chart_option = chart_option.replace('$divWidth$', '100%').replace('$divHeight$', self.chart_height)
+                container_template = container_template.replace('$chart$', chart_option)
+                self.wf_template = self.wf_template.replace('$container$', f"{container_template}\n$container$")
+                print(self.wf_template)
 
 
     def export(self, path="res.html"):

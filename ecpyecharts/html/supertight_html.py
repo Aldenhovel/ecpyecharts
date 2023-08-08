@@ -49,13 +49,18 @@ class SuperTightHTMLTemplate():
             .replace('$background_color$', self.background_color)\
             .replace('divHeight', self.chart_height)
 
+        if self.background_color in ['white', 'lightgray']:
+            self.wf_template = self.wf_template.replace('$txt_color$', 'black')
+        else:
+            self.wf_template = self.wf_template.replace('$txt_color$', 'white')
+
     def append_chart(self, chart_option):
         self.chart_count += 1
         self.chart_options.append(chart_option.export())
         self.build()
 
-    def new_row(self):
-        self.chart_options.append("$NL$")
+    def new_row(self, txt):
+        self.chart_options.append(f"$NL${txt}")
         self.build()
 
     def build(self):
@@ -72,12 +77,19 @@ class SuperTightHTMLTemplate():
             """
         rowix = 0
         for chart_option in self.chart_options:
-            if chart_option == "$NL$":
+            if chart_option[:4] == "$NL$":
                 if rowix == 0:
                     continue
                 else:
                     self.wf_template = self.wf_template.replace('$container$', container_template)
                     rowix = 0
+                container_template = f"""
+                                    <div class="container" style="margin: 0 auto; padding: 0;">
+                                        <div class="row-title">{chart_option[4:]}</div>
+                                    </div>
+                                    $container$
+                                    """
+                self.wf_template = self.wf_template.replace('$container$', container_template)
             else:
                 chart_option = chart_option.replace('$divWidth$', '100%').replace('$divHeight$', self.chart_height)
                 if rowix == 0:  # chart1

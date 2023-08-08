@@ -27,6 +27,15 @@ body {
     border-radius: 10px;
     background-color: white;
 }
+.row-title {
+    flex: 0 0 100%;
+    padding-left: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    background-color: transparent;
+    color: $txt_color$;
+}
 .box-tight {
     margin: 5px;
     flex: 0 0 calc(50% - 10px);
